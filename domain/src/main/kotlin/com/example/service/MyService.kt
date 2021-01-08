@@ -12,4 +12,9 @@ class MyService(private val serviceProperties: ServiceProperties) {
         serviceProperties.getHomePageName()
 
     fun greeting(): String = "Hello, General Kenobi"
+    fun throwNPE(): String {
+        val result: String? = null
+        return result ?: throw NullPointerException("thrown NullPointerException")
+    }
+
 }
