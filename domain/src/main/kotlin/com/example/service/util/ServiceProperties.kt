@@ -1,4 +1,4 @@
-package com.example.domain
+package com.example.service.util
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

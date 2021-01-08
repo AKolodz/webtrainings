@@ -1,6 +1,6 @@
 package com.example.web.routing
 
-import com.example.domain.MyService
+import com.example.service.MyService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.function.RequestPredicates

@@ -1,6 +1,6 @@
 package com.example.web.routing.controller
 
-import com.example.domain.MyService
+import com.example.service.MyService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
