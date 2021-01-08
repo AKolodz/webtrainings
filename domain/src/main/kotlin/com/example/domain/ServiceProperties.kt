@@ -4,11 +4,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties("service")
 class ServiceProperties {
-    private var message: String = "default"
+    private var homePageName: String = "default"
 
-    fun getMessage() = message
+    fun getHomePageName() = homePageName
 
-    fun setMessage(message: String) {
-        this.message = message;
+    fun setHomePageName(message: String) {
+        this.homePageName = message
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service
 @EnableConfigurationProperties(ServiceProperties::class)
 class MyService(private val serviceProperties: ServiceProperties) {
 
-    fun message(): String =
-        serviceProperties.getMessage()
+    fun homePageName(): String =
+        serviceProperties.getHomePageName()
+
+    fun greeting(): String = "Hello, General Kenobi"
 }

@@ -14,8 +14,8 @@ class MyServiceTest {
 
     @Test
     fun contextLoads() {
-        print(myService.message())
-        assertThat(myService.message()).isNotNull
+        print(myService.homePageName())
+        assertThat(myService.homePageName()).isNotNull
     }
     @SpringBootApplication
     internal class TestConfiguration
