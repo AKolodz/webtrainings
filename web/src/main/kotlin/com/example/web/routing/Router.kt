@@ -1,8 +1,10 @@
 package com.example.web.routing
 
 import com.example.service.MyService
+import com.example.web.routing.handler.SimpleHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.MediaType
 import org.springframework.web.servlet.function.RequestPredicates.GET
 import org.springframework.web.servlet.function.RequestPredicates.path
 import org.springframework.web.servlet.function.RouterFunction
@@ -20,6 +22,8 @@ import org.springframework.web.servlet.function.ServerResponse
 //        (GET && /{name}) -> com.example.web.routing.Router$home$5@7a65a360
 //    }
 //}
+// /handle
+//
 // How to read a code:
 // nest under path /route following router function:
 //    /greeting and /exception and /customException and nested under /page following router function
@@ -30,10 +34,12 @@ import org.springframework.web.servlet.function.ServerResponse
 class Router {
 
     @Bean
-    fun home(service: MyService): RouterFunction<ServerResponse> =
+    fun provideRoutingToService(service: MyService): RouterFunction<ServerResponse> =
         nest(path("/route"),
             route(GET("/greeting"), { ServerResponse.ok().body(service.greeting()) })
-                .andRoute(GET("/exception")) { ServerResponse.ok().body("Exception") }
+                .andRoute(GET("/exception"), {
+                    ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(service.throwNPE())
+                })
                 .andRoute(GET("/customException")) { ServerResponse.ok().body("CustomException") }
                 .andNest(
                     GET("/page"),
@@ -45,4 +51,10 @@ class Router {
                         }
                 )
         )
+
+    @Bean
+    fun provideRoutingToHandler(handler: SimpleHandler): RouterFunction<ServerResponse> =
+        route(GET("/route/handledException"), handler::handleException)
+            .andRoute(GET("/"), handler::renderHomePage)
+            .andRoute(GET("/pdf"), handler::providePDF)
 }

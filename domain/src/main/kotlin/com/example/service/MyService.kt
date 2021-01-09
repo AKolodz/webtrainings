@@ -16,5 +16,4 @@ class MyService(private val serviceProperties: ServiceProperties) {
         val result: String? = null
         return result ?: throw NullPointerException("thrown NullPointerException")
     }
-
 }
