@@ -40,7 +40,7 @@ class Router {
                 .andRoute(GET("/exception"), {
                     ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(service.throwNPE())
                 })
-                .andRoute(GET("/customException")) { ServerResponse.ok().body("CustomException") }
+                .andRoute(GET("/customException")) { ServerResponse.ok().body(service.throwCustomEx()) }
                 .andNest(
                     GET("/page"),
                     route(GET(""), {

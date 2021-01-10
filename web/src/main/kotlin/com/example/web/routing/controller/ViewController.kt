@@ -13,4 +13,8 @@ class ViewController(private var service: MyService) {
         model.addAttribute("name", "gen. Kenobi")
         return service.homePageName()
     }
+
+    @GetMapping("/view/exception")
+    fun throwCustomEx(model: Model): String =
+        service.throwCustomEx()
 }
