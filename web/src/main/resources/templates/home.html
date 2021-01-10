@@ -5,13 +5,31 @@
     <title>HOME PAGE</title>
 </head>
 <body>
-Welcome to the home page!<br>
-Available <b>endpoints</b> are:<br>
-<a href="/route/greeting">Routed greeting</a> : http://localhost:8080/route/greeting <br>
-<a href="/nonexistingendpoint">Non existing, displays dedicated, custom 404 page</a> :
-http://localhost:8080/nonexistingendpoint <br>
-<a href="/route/exception">Results in server error, displays dedicated, default error page</a> :
-http://localhost:8080/route/exception <br>
-
+<h1>Welcome to the home page!</h1>
+<h2>Available <b>endpoints</b> are:</h2>
+<ul>
+    <li><b>ViewModel endpoints:</b>
+        <ul>
+            <li><a href="/view/greeting">Greeting (View)</a></li>
+        </ul>
+    </li>
+    <li><b>REST-like endpoints:</b>
+        <ul>
+            <li><a href="/rest/greeting">Greeting (Rest)</a></li>
+        </ul>
+    </li>
+    <li><b>Routed endpoints:</b>
+        <ul>
+            <li><a href="/route/greeting">Greeting (Rest)</a></li>
+            <li><a href="/route/page">Greeting (View)</a></li>
+            <li><a href="/route/page/Olek">Greeting Parametrized (View)</a></li>
+            <li><a href="/route/customException">Custom Exception</a></li>
+            <li><a href="/route/exception">Internal error (Default error page)</a></li>
+            <li><a href="/route/nonExisting">Not found (Custom 404 page)</a></li>
+            <li><a href="/route/handledException">Handled exception</a></li>
+            <li><a href="/pdf">PDF</a></li>
+        </ul>
+    </li>
+</ul>
 </body>
 </html>
