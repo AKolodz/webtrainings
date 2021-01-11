@@ -18,8 +18,8 @@ class RestHandler {
 @ControllerAdvice
 class Handler {
     @ExceptionHandler(CustomException::class)
-    fun handleCustomException(exception: Exception, model: Model): String {
-        model.addAttribute("name", "CustomException")
-        return "greeting"
+    fun handleCustomException(exception: CustomException, model: Model): String {
+        model.addAttribute("exType", "CustomException")
+        return "customException"
     }
 }
